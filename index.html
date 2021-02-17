@@ -1,28 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Github Hub</title>
-    </head>
-    <body>
-        <header>
-            <div><img src="img/logo.gif"></div>
-            <div>This is a website to search for interesting projects on <a href="https://github.com">GitHub</a></div>
-            <nav>
-                <ul>
-                    <li><a href="/index.html">Home</a></li>
-                    <li><a href="/about.html">About</a></li>
-                    <li><a href="/contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-        <section>
-            <p>In this <em>sample website</em> we'll show a list of Github projects 
-            <span>the data about</span> <strong>those projects</strong></p>
-        </section>
-        <footer>
-            &copy; 2021 Gustavo Sampaio LLC
-        </footer>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Hub</title>
+    <link href='styles.css' rel="stylesheet" type="text/css" media="screen">
+    <script src="index.js"></script>
+</head>
+<body class="page">
+    <header>
+        <a href="index.html"><img src="img/logo.gif"/></a>
+        <div>This is a website to search for interesting projects on <a href="https://github.com" target="_blank">GitHub</a></div>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <p>In this <em>sample website</em> we'll show a list of Github projects 
+        <span>the data about</span> <strong>those projects</strong></p>
+
+        <form action="http://wilder.azurewebsites.net/echo" method="GET">
+            <label for="searchPhrase">Search phrase</label><br>
+            <input type="text" name="searchPhrase" id="searchPhrase"><br>
+            <label for="langChoice">Language</label><br>
+            <select name="langChoice" id="langChoice">
+                <option>All</option>
+                <option>JavaScript</option>
+                <option selected>C#</option>
+                <option>Java</option>
+                <option>Delphi</option>
+                <option>Kotlin</option>
+            </select>
+            <br>
+            <input type="checkbox" checked="true" name="useStars" id="useStars">
+            <label for="useStars">Use stars?</label><br>
+            <input type="submit" value="Search"><br>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; 2021 Gustavo Sampaio</p>
+    </footer>
+</body>
 </html>
