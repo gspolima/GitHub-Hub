@@ -10,19 +10,28 @@
 <body>
     <div class="container">
         <header>
-            <a href="index.html"><img src="img/logo.gif" class="bordered-element"/></a>
-            <div>This is a website to search for interesting projects on <a href="https://github.com" target="_blank">GitHub</a></div>
-            <nav>
+            <nav class="navbar">
                 <ul>
                     <li><a href="/index.html">Home</a></li>
                     <li><a href="/about.html">About</a></li>
                     <li><a href="/contact.html">Contact</a></li>
                 </ul>
             </nav>
+            <a href="index.html"><img src="img/logo.gif" /></a>
+            <div>This is a website to search for interesting projects on <a href="https://github.com" target="_blank">GitHub</a></div>
         </header>
+        <section class="cookie-agreement">
+            <p>
+                <h3>Cookies</h3>
+                <span>
+                    By staying in this page you 
+                    agree to our cookies policy
+                </span>
+            </p>
+        </section>
         <section id="main">
             <p>In this <em>sample website</em> we'll show a list of Github projects 
-            <span>the data about</span> <strong>those projects</strong></p>
+            <span>and the data about</span> <strong>those projects</strong></p>
             <form class="bordered-element simple-form" action="http://wilder.azurewebsites.net/echo" method="GET">
                 <label for="searchPhrase">Search phrase</label><br>
                 <input type="text" name="searchPhrase" id="searchPhrase"><br>
@@ -46,6 +55,9 @@
                 <label for="useStars">Use stars?</label><br>
                 <input type="submit" value="Search"><br>
             </form>
+            <div class="results bordered-element">
+                <p>The results of the search will be shown here... eventually</p>
+            </div>
         </section>
         <footer>
             <p>&copy; 2021 Gustavo Sampaio</p>

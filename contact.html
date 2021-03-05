@@ -7,32 +7,34 @@
     <link rel='stylesheet' type='text/css' media='screen' href='styles.css'>
     <script src='index.js'></script>
 </head>
-<body class="page">
-    <header>
-        <a href="index.html"><img src="img/logo.gif"></a>
-        <div>This is a website to search for interesting projects on <a href="https://github.com" target="_blank">GitHub</a></div>
-        <nav>
-            <ul>
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/about.html">About</a></li>
-                <li><a href="/contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section>
-        <h2>Contact Us</h2>
-        <form action="http://wilder.azurewebsites.net/echo" method="POST">
-            <label for="messageSenderEmail">Your email</label><br>
-            <input type="email" name="messageSenderEmail" id="messageSenderEmail"><br>
-            <label for="messageTitle">Title</label><br>
-            <input type="text" name="messageTitle" id="messageTitle" maxlength="40"><br>
-            <label for="messageBody">Message</label><br>
-            <input type="text" name="messageBody" id="messageBody" maxlenght="500"><br>
-            <input type="submit" value="Send"><br>
-        </form>
-    </section>
-    <footer>
-        <p>&copy; 2021 Gustavo Sampaio</p>
-    </footer>
+<body>
+    <div class="container">
+        <header>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/about.html">About</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="index.html"><img src="img/logo.gif" /></a>
+            <div>This is a website to search for interesting projects on <a href="https://github.com" target="_blank">GitHub</a></div>
+        </header>
+        <section id="main">
+            <h2>Contact Us</h2>
+            <form class="bordered-element simple-form" action="http://wilder.azurewebsites.net/echo" method="POST">
+                <label for="messageSenderEmail">Your email</label><br>
+                <input type="email" name="messageSenderEmail" id="messageSenderEmail"><br>
+                <label for="messageTitle">Title</label><br>
+                <input type="text" name="messageTitle" id="messageTitle" maxlength="40"><br>
+                <label for="messageBody">Message</label><br>
+                <input type="text" name="messageBody" id="messageBody" maxlenght="500"><br>
+                <input type="submit" value="Send"><br>
+            </form>
+        </section>
+        <footer>
+            <p>&copy; 2021 Gustavo Sampaio</p>
+        </footer>
+    </div>
 </body>
 </html>
