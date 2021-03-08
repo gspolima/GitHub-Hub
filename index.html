@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Github Hub</title>
-    <link href='styles.css' rel="stylesheet" type="text/css" media="screen">
-    <script src="index.js"></script>
+    <title>GitHub Hub</title>
+    <link href='css/styles.css' rel="stylesheet" type="text/css" media="screen">
+    <link rel="icon" type="image/png" href="img/favicon.ico">
 </head>
 <body>
     <div class="container">
@@ -17,21 +17,22 @@
                     <li><a href="/contact.html">Contact</a></li>
                 </ul>
             </nav>
-            <a href="index.html"><img src="img/logo.gif" /></a>
+            <a href="index.html"><img class="logo" src="img/logo.gif"/></a>
             <div>This is a website to search for interesting projects on <a href="https://github.com" target="_blank">GitHub</a></div>
         </header>
         <section class="cookie-agreement">
             <p>
                 <h3>Cookies</h3>
                 <span>
-                    By staying in this page you 
-                    agree to our cookies policy
+                    By visiting, you agree to our cookies policy
                 </span>
             </p>
         </section>
         <section id="main">
-            <p>In this <em>sample website</em> we'll show a list of Github projects 
-            <span>and the data about</span> <strong>those projects</strong></p>
+            <p>
+                In this <em>sample website</em> we'll show a list of Github projects 
+                <span>and the data about</span> <strong>those projects</strong>
+            </p>
             <form class="bordered-element simple-form" action="http://wilder.azurewebsites.net/echo" method="GET">
                 <label for="searchPhrase">Search phrase</label><br>
                 <input type="text" name="searchPhrase" id="searchPhrase"><br>
@@ -45,17 +46,11 @@
                     <option>Ruby</option>
                 </select>
                 <br>
-                <fieldset>
-                    <input type="checkbox" checked="false" name="usedatefilter" id="usedatefilter">
-                    <label for="usedatefilter">Only created after</label>
-                    <br>
-                    <input type="date" name="datepicker" id="datepicker">
-                </fieldset>
                 <input type="checkbox" checked="true" name="useStars" id="useStars">
                 <label for="useStars">Use stars?</label><br>
                 <input type="submit" value="Search"><br>
             </form>
-            <div class="results bordered-element">
+            <div id="results" class="bordered-element">
                 <p>The results of the search will be shown here... eventually</p>
             </div>
         </section>
@@ -63,5 +58,6 @@
             <p>&copy; 2021 Gustavo Sampaio</p>
         </footer>
     </div>
+    <script type="text/javascript" src='js/index.js'></script>
 </body>
 </html>
