@@ -4,14 +4,17 @@
 
 "use strict";
 
-var message = "Hello, JavaScript!";
+var resultList = jQuery("#resultList");
+resultList.text("This text is coming from jQuery!");
+
+/* var message = "Hello, JavaScript!";
 console.log(message);
 
 var resultsDiv = document.getElementById("results");
-resultsDiv.innerHTML = "This is coming from JS!"
+resultsDiv.innerHTML = "This is coming from JS!" */
 
-
-var results = [
+// Objects and arrays
+/* var results = [
     {
         name: "jQuery",
         language: "JavaScript",
@@ -41,10 +44,10 @@ var results = [
 ];
 
 results[0].browser = "Edge Dev";
-
 console.log(results.length)
 console.log(results[0].browser);
 
+// Looping and conditionals
 for (var i = 0; i < results.length; i++) {
     if (results[i].score > 4) continue;
     console.log(results[i].name + " - " + results[i].score)
@@ -52,8 +55,7 @@ for (var i = 0; i < results.length; i++) {
     console.log(results[i].owner.login);
 }
 
-/*
-// types
+// Types
 var aNumber = 4;
 var trueFalse = true;
 var Name = "Goose";
@@ -77,7 +79,7 @@ var displayOperationName = function (operationName) {
 
 //undeclaredVariable = "This should not be legal";
 
-// functions
+// Functions
 function Sum (operationName, callback) {
     displayOperationName(operationName);
     callback();
@@ -86,4 +88,5 @@ function Sum (operationName, callback) {
 Sum("Sum called", function () {
     console.log("callback called --> " + (2 + 2));
 });
+
 */
