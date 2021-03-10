@@ -51,6 +51,7 @@ footer {
     margin: 0px auto;
     background-color: white;
     padding: 8px 8px;
+    border-radius: 5px;
 }
 
 #main {
@@ -105,26 +106,24 @@ footer {
     border: 0;
 }
 
-.cookie-agreement {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    background-color: rgb(0, 78, 0);
-    border: solid 1px rgb(72, 228, 119);
-    border-radius: 8px;
-    color: white;
-    width: 270px;
-    padding-left: 10px;
-}
-
 .bordered-element {
     border: solid 2px rgb(128, 128, 128);
     border-radius: 4px;
 }
 
 #results {
+    margin: 0 5px;
     padding: 2px 10px;
     display: inline-block;
     vertical-align: top;
-    width: 615px;
+    width: 605px;
+}
+
+.result {
+    margin: 6px 0;
+    padding: 1px 4px;
+}
+
+.result .title {
+    font-weight: bold;
 }

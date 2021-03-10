@@ -2,91 +2,138 @@
     index.js
 */
 
-"use strict";
+$(document).ready( () => {
 
-var resultList = jQuery("#resultList");
-resultList.text("This text is coming from jQuery!");
+    "use strict";
 
-/* var message = "Hello, JavaScript!";
-console.log(message);
+    var resultList = jQuery("#resultList");
 
-var resultsDiv = document.getElementById("results");
-resultsDiv.innerHTML = "This is coming from JS!" */
-
-// Objects and arrays
-/* var results = [
-    {
-        name: "jQuery",
-        language: "JavaScript",
-        protocol: "HTTP",
-        score: 4.8,
-        owner: {
-            login: "gustavo",
-            password: "12345"
-        },
-        showLog: function () {
-            console.log("showLog output");
+    var toggleButton = $("#toggleButton");
+    toggleButton.on("click", () => {
+        resultList.toggle(250);
+        if (toggleButton.text() === "Hide") {
+            toggleButton.text("Show");
         }
-    },
-    {
-        name: "jQuery UI",
-        language: "JavaScript",
-        protocol: "HTTP",
-        score: 3.5,
-        owner: {
-            login: "gustavo",
-            password: "54321"
-        },
-        showLog: function () {
-            console.log("showLog output");
+        else {
+            toggleButton.text("Hide");
         }
-    },
-];
+    });
 
-results[0].browser = "Edge Dev";
-console.log(results.length)
-console.log(results[0].browser);
+    var navbarItems = $("header nav li");
+    
+    $.each(navbarItems, function (i, item) {
+        $(this).hover(
+            function () {
+                $(this).css("background-color", "#1eb500");
+            },
+            function () {
+                $(this).css("background-color", "green");
+            }
+        )
+    })
 
-// Looping and conditionals
-for (var i = 0; i < results.length; i++) {
-    if (results[i].score > 4) continue;
-    console.log(results[i].name + " - " + results[i].score)
+    var results = [
+        {
+            name: "jQuery",
+            language: "JavaScript",
+            protocol: "HTTP",
+            score: 4.8,
+            owner: {
+                login: "gustavo",
+                password: "12345"
+            },
+            showLog: function () {
+                console.log("showLog output");
+            }
+        },
+        {
+            name: "jQuery UI",
+            language: "JavaScript",
+            protocol: "HTTP",
+            score: 3.5,
+            owner: {
+                login: "pedro",
+                password: "54321"
+            },
+            showLog: function () {
+                console.log("showLog output");
+            }
+        },
+    ];
 
-    console.log(results[i].owner.login);
-}
+    resultList.empty();
+    $.each(results, (i, item) => {
+        var newResult = 
+            $("<div class='result bordered-element'>" + 
+            "<div class='title'>" + item.name + "</div>" +
+            "<div>Language: " + item.language + "</div>" +
+            "<div>Owner: " + item.owner.login + "</div>" +
+            "<div/>");
 
-// Types
-var aNumber = 4;
-var trueFalse = true;
-var Name = "Goose";
-var none;
+        newResult.hover(
+            function () {
+                $(this).css("background-color", "lightgray");
+            },
+            function () {
+                $(this).css("background-color", "white");
+            }
+        );
 
-console.log("aNumber is " + typeof(aNumber));
-console.log("trueFalse is " + typeof(trueFalse));
-console.log("Name is " + typeof(Name));
+        resultList.append(newResult);
+    })
 
-if (!none)
-console.log("none is undefined");
+    /* var message = "Hello, JavaScript!";
+    console.log(message);
 
-if (aNumber === "4")
-console.log("aNumber is of type number and is equal to 4");
-else
-console.log("We don't know what aNumber is equal to, but its type is not string for sure");
+    var resultsDiv = document.getElementById("results");
+    resultsDiv.innerHTML = "This is coming from JS!" */
+    /*
+    results[0].browser = "Edge Dev";
+    console.log(results.length)
+    console.log(results[0].browser);
 
-var displayOperationName = function (operationName) {
-    console.log(operationName);
-}
+    // Looping and conditionals
+    for (var i = 0; i < results.length; i++) {
+        if (results[i].score > 4) continue;
+        console.log(results[i].name + " - " + results[i].score)
 
-//undeclaredVariable = "This should not be legal";
+        console.log(results[i].owner.login);
+    }
 
-// Functions
-function Sum (operationName, callback) {
-    displayOperationName(operationName);
-    callback();
-}
+    // Types
+    var aNumber = 4;
+    var trueFalse = true;
+    var Name = "Goose";
+    var none;
 
-Sum("Sum called", function () {
-    console.log("callback called --> " + (2 + 2));
-});
+    console.log("aNumber is " + typeof(aNumber));
+    console.log("trueFalse is " + typeof(trueFalse));
+    console.log("Name is " + typeof(Name));
 
-*/
+    if (!none)
+    console.log("none is undefined");
+
+    if (aNumber === "4")
+    console.log("aNumber is of type number and is equal to 4");
+    else
+    console.log("We don't know what aNumber is equal to, but its type is not string for sure");
+
+    var displayOperationName = function (operationName) {
+        console.log(operationName);
+    }
+
+    //undeclaredVariable = "This should not be legal";
+
+    // Functions
+    function Sum (operationName, callback) {
+        displayOperationName(operationName);
+        callback();
+    }
+
+    Sum("Sum called", function () {
+        console.log("callback called --> " + (2 + 2));
+    });
+
+    */
+
+})

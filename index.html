@@ -14,20 +14,12 @@
                 <ul>
                     <li><a href="/index.html">Home</a></li>
                     <li><a href="/about.html">About</a></li>
-                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a target="_blank" href="https://docs.github.com/en/rest">API</a></li>
                 </ul>
             </nav>
-            <a href="index.html"><img class="logo" src="img/logo.gif"/></a>
+            <a href="index.html"><img alt="GitHub Hub logo" class="logo" src="img/logo.gif"/></a>
             <div>This is a website to search for interesting projects on <a href="https://github.com" target="_blank">GitHub</a></div>
         </header>
-        <section class="cookie-agreement">
-            <p>
-                <h3>Cookies</h3>
-                <span>
-                    By visiting, you agree to our cookies policy
-                </span>
-            </p>
-        </section>
         <section id="main">
             <p>
                 In this <em>sample website</em> we'll show a list of Github projects 
@@ -51,8 +43,9 @@
                 <input type="submit" value="Search"><br>
             </form>
             <div id="results" class="bordered-element">
+                <button id="toggleButton">Hide</i></button>
                 <div id="resultList">
-                    Results here
+
                 </div>
             </div>
         </section>
