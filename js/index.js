@@ -6,10 +6,80 @@ $(document).ready( () => {
 
     "use strict";
 
+    var githubSearch = "https://api.github.com/search/repositories?q=blazor+language:CSharp&sort=stars";
+
+    // As of jQuery 3.0, the former ".success()" promisse 
+    // was replaced by ".done()", and ".done()" was replaced by ".always()"
+    $.get(githubSearch)
+        .done(function (r) {
+            displayResults(r.items);
+            console.log("Response received");
+        })
+        .fail(function (err) {
+            console.log("Failed to query GitHub");
+        })
+        .always(function () {
+            console.log("Query executed");
+        });
+
+    // var results = [
+    //     {
+    //         name: "jQuery",
+    //         language: "JavaScript",
+    //         protocol: "HTTP",
+    //         score: 4.8,
+    //         owner: {
+    //             login: "gustavo",
+    //             password: "12345"
+    //         },
+    //         showLog: function () {
+    //             console.log("showLog output");
+    //         }
+    //     },
+    //     {
+    //         name: "jQuery UI",
+    //         language: "JavaScript",
+    //         protocol: "HTTP",
+    //         score: 3.5,
+    //         owner: {
+    //             login: "pedro",
+    //             password: "54321"
+    //         },
+    //         showLog: function () {
+    //             console.log("showLog output");
+    //         }
+    //     },
+    // ];
+
     var resultList = jQuery("#resultList");
 
+    function displayResults(results) {
+        resultList.empty();
+        $.each(results, function (i, item) {
+            var newResult = 
+                $("<div class='result bordered-element'>" + 
+                "<div class='title'><a href='"+ item.html_url +"' target='_blank'>" + item.full_name + "</a></div>" +
+                "<div><em>" + item.description + "</em></div>" +
+                "<div>Language: " + item.language + "</div>" +
+                "<div>Stars: " + item.stargazers_count + "</div>" +
+                "<div>Forks: " + item.forks_count + "</div>" +
+                "<div/>");
+
+            newResult.hover(
+                function () {
+                    $(this).css("background-color", "lightgray");
+                },
+                function () {
+                    $(this).css("background-color", "white");
+                }
+            );
+
+            resultList.append(newResult);
+        })
+    };
+
     var toggleButton = $("#toggleButton");
-    toggleButton.on("click", () => {
+    toggleButton.on("click", function () {
         resultList.toggle(250);
         if (toggleButton.text() === "Hide") {
             toggleButton.text("Show");
@@ -20,7 +90,6 @@ $(document).ready( () => {
     });
 
     var navbarItems = $("header nav li");
-    
     $.each(navbarItems, function (i, item) {
         $(this).hover(
             function () {
@@ -32,55 +101,15 @@ $(document).ready( () => {
         )
     })
 
-    var results = [
-        {
-            name: "jQuery",
-            language: "JavaScript",
-            protocol: "HTTP",
-            score: 4.8,
-            owner: {
-                login: "gustavo",
-                password: "12345"
-            },
-            showLog: function () {
-                console.log("showLog output");
-            }
+    var formButton = $(".formButton");
+    formButton.hover(
+        function () {
+            $(this).css("background-color", "green");
         },
-        {
-            name: "jQuery UI",
-            language: "JavaScript",
-            protocol: "HTTP",
-            score: 3.5,
-            owner: {
-                login: "pedro",
-                password: "54321"
-            },
-            showLog: function () {
-                console.log("showLog output");
-            }
-        },
-    ];
-
-    resultList.empty();
-    $.each(results, (i, item) => {
-        var newResult = 
-            $("<div class='result bordered-element'>" + 
-            "<div class='title'>" + item.name + "</div>" +
-            "<div>Language: " + item.language + "</div>" +
-            "<div>Owner: " + item.owner.login + "</div>" +
-            "<div/>");
-
-        newResult.hover(
-            function () {
-                $(this).css("background-color", "lightgray");
-            },
-            function () {
-                $(this).css("background-color", "white");
-            }
-        );
-
-        resultList.append(newResult);
-    })
+        function () {
+            $(this).css("background-color", "rgb(0, 73, 0)");
+        }
+    );
 
     /* var message = "Hello, JavaScript!";
     console.log(message);
