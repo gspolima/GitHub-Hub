@@ -18,34 +18,38 @@
                 </ul>
             </nav>
             <a href="index.html"><img alt="GitHub Hub logo" class="logo" src="img/logo.gif"/></a>
-            <div>This is a website to search for interesting projects on <a href="https://github.com" target="_blank">GitHub</a></div>
+            <div>Look for interesting repositories on <a href="https://github.com" target="_blank">GitHub</a>!</div>
         </header>
         <section id="main">
-            <p>
-                In this <em>sample website</em> we'll show a list of Github projects 
-                <span>and the data about</span> <strong>those projects</strong>
-            </p>
-            <form class="bordered-element simple-form" action="http://wilder.azurewebsites.net/echo" method="GET">
-                <label for="searchPhrase">Search phrase</label><br>
-                <input type="text" name="searchPhrase" id="searchPhrase"><br>
-                <label for="langChoice">Language</label><br>
-                <select name="langChoice" id="langChoice">
-                    <option>All</option>
-                    <option>JavaScript</option>
-                    <option selected>C#</option>
-                    <option>Java</option>
-                    <option>Kotlin</option>
-                    <option>Ruby</option>
-                </select>
-                <br>
-                <input type="checkbox" checked="true" name="useStars" id="useStars">
-                <label for="useStars">Use stars?</label><br>
-                <input class="formButton" type="submit" value="Search"><br>
-            </form>
-            <div id="results" class="bordered-element">
-                <button class="formButton" id="toggleButton">Hide</i></button>
-                <div id="resultList">
-
+            <div id="search">
+                <form id="githubSearchForm" class="simple-form bordered-element" action="http://wilder.azurewebsites.net/echo" method="GET">
+                    <label for="searchPhrase">Search phrase</label><br>
+                    <input type="text" name="searchPhrase" id="searchPhrase"><br>
+                    <label for="langChoice">Language</label><br>
+                    <select name="langChoice" id="langChoice">
+                        <option selected>All</option>
+                        <option>JavaScript</option>
+                        <option>C#</option>
+                        <option>Java</option>
+                        <option>Kotlin</option>
+                        <option>Ruby</option>
+                    </select>
+                    <br>
+                    <input type="checkbox" checked="true" name="useStars" id="useStars">
+                    <label for="useStars">Sort by stars</label><br>
+                    <input id="submitSearch" class="formButton" type="submit" value="Search"><br>
+                </form>
+                <form id="githubSearchByUserForm" class="simple-form bordered-element" action="http://wilder.azurewebsites.net/echo" method="GET">
+                    <label for="user">Username</label><br>
+                    <input id="user" name="user" type="text" value="PedroLSM" autofocus><br>
+                    <input id="submitSearch" class="formButton" type="submit" value="Search">
+                </form>
+            </div>
+            <div id="resultFrame">
+                <div id="results" class="bordered-element">
+                    <button class="formButton" id="toggleButton">Hide</i></button>
+                    <div id="resultList">
+                    </div>
                 </div>
             </div>
         </section>
@@ -56,7 +60,7 @@
                     <li><a href="https://twitter.com/spl_gustavo" target="_blank"><img width="45px" height="45px" src="/img/twitter.png"/></a></li>
                 </ul>
             </div>
-            <p>&copy; 2021 Gustavo Sampaio</p>
+            <p>&copy; 2021, Gustavo Sampaio</p>
         </footer>        
     </div>
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>

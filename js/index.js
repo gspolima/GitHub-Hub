@@ -6,52 +6,102 @@ $(document).ready( () => {
 
     "use strict";
 
-    var githubSearch = "https://api.github.com/search/repositories?q=blazor+language:CSharp&sort=stars";
+    
+    $("#githubSearchForm").on("submit", function () {
+        
+        var githubSearch = "https://api.github.com/search/repositories?q=";
+        var searchPhrase = $("#searchPhrase").val();
+        var language = $("#langChoice").val();
+        var useStars = $("#useStars").val();
 
-    // As of jQuery 3.0, the former ".success()" promisse 
-    // was replaced by ".done()", and ".done()" was replaced by ".always()"
-    $.get(githubSearch)
-        .done(function (r) {
-            displayResults(r.items);
-            console.log("Response received");
-        })
-        .fail(function (err) {
-            console.log("Failed to query GitHub");
-        })
-        .always(function () {
-            console.log("Query executed");
-        });
+        resultList.text("Performing query...");
 
-    // var results = [
-    //     {
-    //         name: "jQuery",
-    //         language: "JavaScript",
-    //         protocol: "HTTP",
-    //         score: 4.8,
-    //         owner: {
-    //             login: "gustavo",
-    //             password: "12345"
-    //         },
-    //         showLog: function () {
-    //             console.log("showLog output");
-    //         }
-    //     },
-    //     {
-    //         name: "jQuery UI",
-    //         language: "JavaScript",
-    //         protocol: "HTTP",
-    //         score: 3.5,
-    //         owner: {
-    //             login: "pedro",
-    //             password: "54321"
-    //         },
-    //         showLog: function () {
-    //             console.log("showLog output");
-    //         }
-    //     },
-    // ];
+        if (searchPhrase) {
+
+            githubSearch += encodeURIComponent(searchPhrase);
+
+            if (language != "All") {
+                githubSearch += "+language:" + encodeURIComponent(language);
+            }
+            if (useStars) {
+                githubSearch += "&sort=stars";
+            }
+
+            // As of jQuery 3.0, the former ".success()" promisse 
+            // was replaced by ".done()", and ".done()" was replaced by ".always()"
+            $.get(githubSearch)
+                .done(function (results) {
+                    if (results.items.length == 0) {
+                        resultList.text("There are no results for your search :/");
+                    }
+                    else {
+                        displayResults(results.items);
+                        console.log("Response received");
+                    }
+                })
+                .fail(function (err) {
+                    console.log("Failed to query GitHub");
+                })
+                .always(function () {
+                    console.log("Query executed");
+            });
+    
+        }
+        else {
+            resultList.text("You must provide a term or phrase to search for");
+        }
+        return false;
+    });
+
+    $("#githubSearchByUserForm").on("submit", function () {
+       
+        var githubSearch = "https://api.github.com/users/";
+        var user = $("#user").val();
+
+        resultList.text("Performing query...");
+
+        if (user) {
+            githubSearch += user + "/repos?sort=stars";
+
+            $.get(githubSearch)
+            .done(function (results) {
+                    displayResultsByUser(results);
+            })
+            .fail(function (err) {
+                console.log("Failed to query GitHub");
+            })
+            .always(function () {
+                console.log("Query executed");
+            })
+        }
+        else {
+            resultList.text("You must provide a usermane");
+        }
+        return false;
+    });
 
     var resultList = jQuery("#resultList");
+
+    function displayResultsByUser(results) {
+        resultList.empty();
+        $.each(results, function (i, item) {
+            var newResult = 
+                $("<div class='result bordered-element'>" + 
+                "<div class='title'><a href='"+ item.html_url +"' target='_blank'>" + item.name + "</a></div>" +
+                "<div><em>" + item.description + "<em/></div>" +
+                "<div>Language: " + item.language + "</div>" +
+                "<div/>");
+
+            newResult.hover(
+                function () {
+                    $(this).css("background-color", "lightgray");
+            }, function (params) {
+                    $(this).css("background-color", "white");
+            });
+    
+            resultList.append(newResult);
+        });
+    }
 
     function displayResults(results) {
         resultList.empty();
@@ -59,7 +109,6 @@ $(document).ready( () => {
             var newResult = 
                 $("<div class='result bordered-element'>" + 
                 "<div class='title'><a href='"+ item.html_url +"' target='_blank'>" + item.full_name + "</a></div>" +
-                "<div><em>" + item.description + "</em></div>" +
                 "<div>Language: " + item.language + "</div>" +
                 "<div>Stars: " + item.stargazers_count + "</div>" +
                 "<div>Forks: " + item.forks_count + "</div>" +
@@ -110,6 +159,35 @@ $(document).ready( () => {
             $(this).css("background-color", "rgb(0, 73, 0)");
         }
     );
+
+    // var results = [
+    //     {
+    //         name: "jQuery",
+    //         language: "JavaScript",
+    //         protocol: "HTTP",
+    //         score: 4.8,
+    //         owner: {
+    //             login: "gustavo",
+    //             password: "12345"
+    //         },
+    //         showLog: function () {
+    //             console.log("showLog output");
+    //         }
+    //     },
+    //     {
+    //         name: "jQuery UI",
+    //         language: "JavaScript",
+    //         protocol: "HTTP",
+    //         score: 3.5,
+    //         owner: {
+    //             login: "pedro",
+    //             password: "54321"
+    //         },
+    //         showLog: function () {
+    //             console.log("showLog output");
+    //         }
+    //     },
+    // ];
 
     /* var message = "Hello, JavaScript!";
     console.log(message);

@@ -76,19 +76,20 @@ footer {
     padding: 10px 10px;
 }
 
-#main h2 {
-    margin: 0 0 10px 0;
+#search {
+    display: inline-block;
 }
 
-#main p {
-    margin: 0 0 10px 0;
+#resultFrame {
+    margin: 0px 5px;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .simple-form {
+    margin: 10px 0px;
     padding: 6px 8px;
     width: 300px;
-    display: inline-block;
-    vertical-align: top;
 }
 
 .simple-form label {
@@ -129,11 +130,9 @@ footer {
 }
 
 #results {
-    margin: 0 5px;
+    margin: 10px 0px;
     padding: 2px 10px;
-    display: inline-block;
-    vertical-align: top;
-    width: 605px;
+    width: 600px;
 }
 
 .result {
