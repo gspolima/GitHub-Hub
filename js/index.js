@@ -12,7 +12,6 @@ $(document).ready( () => {
         var githubSearch = "https://api.github.com/search/repositories?q=";
         var searchPhrase = $("#searchPhrase").val();
         var language = $("#langChoice").val();
-        var useStars = $("#useStars").val();
 
         resultList.text("Performing query...");
 
@@ -22,9 +21,6 @@ $(document).ready( () => {
 
             if (language != "All") {
                 githubSearch += "+language:" + encodeURIComponent(language);
-            }
-            if (useStars) {
-                githubSearch += "&sort=stars";
             }
 
             // As of jQuery 3.0, the former ".success()" promisse 
@@ -50,6 +46,8 @@ $(document).ready( () => {
         else {
             resultList.text("You must provide a term or phrase to search for");
         }
+
+        console.log("URL --> " + githubSearch);
         return false;
     });
 
@@ -88,8 +86,8 @@ $(document).ready( () => {
             var newResult = 
                 $("<div class='result bordered-element'>" + 
                 "<div class='title'><a href='"+ item.html_url +"' target='_blank'>" + item.name + "</a></div>" +
-                "<div><em>" + item.description + "<em/></div>" +
-                "<div>Language: " + item.language + "</div>" +
+                "<div>Language: " + (item.language ? item.language : "No language specified") + "</div>" +
+                "<div>" + (item.description ? item.description : "No description provided") + "</div>" +
                 "<div/>");
 
             newResult.hover(
@@ -130,11 +128,11 @@ $(document).ready( () => {
     var toggleButton = $("#toggleButton");
     toggleButton.on("click", function () {
         resultList.toggle(250);
-        if (toggleButton.text() === "Hide") {
-            toggleButton.text("Show");
+        if (toggleButton.text() === "Hide results") {
+            toggleButton.text("Show results");
         }
         else {
-            toggleButton.text("Hide");
+            toggleButton.text("Hide results");
         }
     });
 

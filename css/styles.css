@@ -2,17 +2,18 @@ header, footer {
     background-color: rgb(221, 221, 221);
     border: solid 1px black;
     border-radius: 8px;
-    padding: 0 0 5px 5px;
+    padding: 5px 5px 5px 6px;
 }
 
 .logo {
     width: 200px;
     height: 50px;
+    margin-bottom: 4px;
 }
 
 .navbar {
     float: right;
-    margin-right: 20px;
+    margin-right: -4px;
 }
 
 .navbar li {
@@ -44,6 +45,11 @@ body {
 footer {
     padding: 0px 10px;
     border-radius: 8px;
+}
+
+footer > p {
+    margin-bottom: 13px;
+    margin-top: 13px;
 }
 
 .footerLinks {
@@ -101,22 +107,10 @@ footer {
     width: 170px;
 }
 
-.simple-form input[type="checkbox"] {
-    margin-top: 10px;
+.form-group {
+    margin-bottom: 0px;
 }
 
-.simple-form input[type=submit] {
-    color: white;
-    border: solid 1px green;
-    background-color: rgb(0, 73, 0);;
-    border-radius: 15px;
-    padding: 5px 10px;
-    font-size: 15px;
-    font-weight: bold;
-    font-style: oblique;
-    cursor: pointer;
-    margin-top: 10px;
-}
 
 .simple-form fieldset {
     margin: 10px 0;
@@ -130,7 +124,7 @@ footer {
 }
 
 #results {
-    margin: 10px 0px;
+    margin: 0px 0px;
     padding: 2px 10px;
     width: 600px;
 }
@@ -146,12 +140,14 @@ footer {
 
 #results #toggleButton {
     color: white;
-    border: solid 1px green;
-    background-color: rgb(0, 73, 0);
-    margin: 5px 0;
-    border-radius: 4px;
+    margin: 8px 0 8px 0;
     padding: 4px 6px;
     font-size: 14px;
-    font-weight: bold;
+    
     cursor: pointer;
+}
+
+.btn-success {
+    font-size: 14px;
+    padding: 4px 8px;
 }

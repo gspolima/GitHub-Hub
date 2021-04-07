@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitHub Hub</title>
+    <link href='css/bootstrap.min.css' rel="stylesheet" type="text/css" media="screen">
+    <link href='css/bootstrap-reboot.min.css' rel="stylesheet" type="text/css" media="screen">
+    <link href='css/bootstrap-grid.min.css' rel="stylesheet" type="text/css" media="screen">
     <link href='css/styles.css' rel="stylesheet" type="text/css" media="screen">
     <link rel="icon" type="image/png" href="img/favicon.ico">
 </head>
@@ -20,33 +23,40 @@
             <div>Look up for interesting repositories on <a href="https://github.com" target="_blank">GitHub</a>!</div>
         </header>
         <section id="main">
-            <div id="search">
-                <form id="githubSearchForm" class="simple-form bordered-element" action="http://wilder.azurewebsites.net/echo" method="GET">
-                    <label for="searchPhrase">Search phrase</label><br>
-                    <input type="text" name="searchPhrase" id="searchPhrase"><br>
-                    <label for="langChoice">Language</label><br>
-                    <select name="langChoice" id="langChoice">
-                        <option selected>All</option>
-                        <option>JavaScript</option>
-                        <option>C#</option>
-                        <option>Java</option>
-                        <option>Kotlin</option>
-                        <option>Ruby</option>
-                    </select>
+            <div id="search" class="bordered-element">
+                <form id="githubSearchForm" class="simple-form" action="http://wilder.azurewebsites.net/echo" method="GET">
+                    <h3>Broad Search</h3>
+                    <div class="form-group">
+                        <label for="searchPhrase">Search phrase</label><br>
+                        <input class="form-control form-control-sm" id="searchPhrase" type="text" name="searchPhrase"><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="langChoice">Language</label><br>
+                        <select class="form-control form-control-sm" name="langChoice" id="langChoice">
+                            <option selected>All</option>
+                            <option>JavaScript</option>
+                            <option>C#</option>
+                            <option>Java</option>
+                            <option>Kotlin</option>
+                            <option>Ruby</option>
+                        </select>
+                    </div>
                     <br>
-                    <input type="checkbox" checked="true" name="useStars" id="useStars">
-                    <label for="useStars">Sort by stars</label><br>
-                    <input id="submitSearch" class="formButton" type="submit" value="Search"><br>
+                    <button id="submitSearch" class="btn btn-success" type="submit">Search</button>
                 </form>
-                <form id="githubSearchByUserForm" class="simple-form bordered-element" action="http://wilder.azurewebsites.net/echo" method="GET">
-                    <label for="user">Username</label><br>
-                    <input id="user" name="user" type="text" value="azure" autofocus><br>
-                    <input id="submitSearch" class="formButton" type="submit" value="Search">
+                <hr>
+                <form id="githubSearchByUserForm" class="simple-form" action="http://wilder.azurewebsites.net/echo" method="GET">
+                    <h3>Search by User</h3>
+                    <div class="form-group">
+                        <label for="user">Username</label><br>
+                        <input class="form-control form-control-sm" id="user" name="user" type="text" value="Azure" autofocus><br>
+                    </div>
+                    <button id="submitSearch" class="btn btn-success" type="submit">Search</button>
                 </form>
             </div>
             <div id="resultFrame">
                 <div id="results" class="bordered-element">
-                    <button class="formButton" id="toggleButton">Hide</i></button>
+                    <button class="btn btn-info" id="toggleButton">Hide results</i></button>
                     <div id="resultList">
                     </div>
                 </div>
@@ -63,6 +73,8 @@
         </footer>        
     </div>
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src='js/index.js'></script>
 </body>
 </html>
