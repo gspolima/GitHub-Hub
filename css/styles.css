@@ -1,50 +1,18 @@
-header, footer {
-    background-color: rgb(221, 221, 221);
-    border: solid 1px black;
-    border-radius: 8px;
-    padding: 5px 5px 5px 6px;
-}
-
 .logo {
     width: 200px;
     height: 50px;
     margin-bottom: 4px;
 }
 
-.navbar {
-    float: right;
-    margin-right: -4px;
-}
-
-.navbar li {
-    display: inline;
-    margin-left: 5px;
-    border-radius: 4px;
-    padding: 4px 6px;
-    font-weight: bold;
-    background-color: green;
-}
-
 nav a {
     text-decoration: none;
     color: white;
-}
-
-html, body {
-    padding: 0;
-    margin: 0;
-}
-
-body {
-    font-size: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: rgb(0, 73, 0);;
-    
-}
-
-footer {
     padding: 0px 10px;
-    border-radius: 8px;
+}
+
+a:hover {
+    text-decoration: none;
+    color: white;
 }
 
 footer > p {
@@ -79,7 +47,7 @@ footer > p {
     border: solid 2px #ccc;
     border-radius: 8px;
     margin: 20px 0px;
-    padding: 10px 10px;
+    padding: 0px 6px;
 }
 
 #search {
@@ -140,14 +108,103 @@ footer > p {
 
 #results #toggleButton {
     color: white;
-    margin: 8px 0 8px 0;
-    padding: 4px 6px;
-    font-size: 14px;
-    
+    margin: 16px 0 8px 0;
     cursor: pointer;
 }
 
+/* Bootstrap Overrides */
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+header, footer {
+    background-color: rgb(221, 221, 221);
+    border: solid 1px black;
+    border-radius: 8px;
+    padding: 5px 5px 5px 10px;
+}
+
+body {
+    font-size: 17px;
+    font-family: Lato, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: rgb(0, 73, 0);;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+footer {
+    padding: 0px 10px;
+    border-radius: 8px;
+}
+
+.navbar {
+    float: right;
+    margin-right: -4px;
+}
+
+.navbar li {
+    display: inline;
+    margin-left: 5px;
+    border-radius: 4px;
+    padding: 4px 6px;
+    font-weight: bold;
+    background-color: green;
+}
+
+.btn {
+    padding: 4px 14px;
+    border-radius: 9px;
+}
+
 .btn-success {
-    font-size: 14px;
-    padding: 4px 8px;
+    background-color: #174900;
+    border-color: #11441d;
+}
+
+.btn-success.focus, .btn-success:focus {
+    background-color: #218838;
+    border-color: #1e7e34;
+    box-shadow: none;
+}
+
+.btn-info {
+    background-color: #30a7d6;
+    border-color: #1e81a9;
+}
+
+.btn-info:hover {
+    background-color: #1ebfff;
+    border-color: #77bdd8;
+}
+
+.btn-info.focus, .btn-info:focus {
+    background-color: #1ebfff;
+    border-color: #77bdd8;
+    box-shadow: none;
+}
+
+.btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show>.btn-info.dropdown-toggle {
+    background-color: #1ebfff;
+    border-color: #77bdd8;
+}
+
+.form-control {
+    padding: 18px 10px;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 9px;
+}
+
+.form-control:focus {
+        border-color: #4ea3ff;
+        box-shadow: none;
+}
+
+.select-list {
+    padding: 0 8px;
+    height: 38px;
 }

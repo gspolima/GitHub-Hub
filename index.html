@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GitHub Hub</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <link href='css/bootstrap.min.css' rel="stylesheet" type="text/css" media="screen">
     <link href='css/bootstrap-reboot.min.css' rel="stylesheet" type="text/css" media="screen">
     <link href='css/bootstrap-grid.min.css' rel="stylesheet" type="text/css" media="screen">
@@ -23,7 +25,7 @@
             <div>Look up for interesting repositories on <a href="https://github.com" target="_blank">GitHub</a>!</div>
         </header>
         <section id="main">
-            <div id="search" class="bordered-element">
+            <div id="search">
                 <form id="githubSearchForm" class="simple-form" action="http://wilder.azurewebsites.net/echo" method="GET">
                     <h3>Broad Search</h3>
                     <div class="form-group">
@@ -32,7 +34,7 @@
                     </div>
                     <div class="form-group">
                         <label for="langChoice">Language</label><br>
-                        <select class="form-control form-control-sm" name="langChoice" id="langChoice">
+                        <select class="form-control select-list" name="langChoice" id="langChoice">
                             <option selected>All</option>
                             <option>JavaScript</option>
                             <option>C#</option>
@@ -55,7 +57,7 @@
                 </form>
             </div>
             <div id="resultFrame">
-                <div id="results" class="bordered-element">
+                <div id="results">
                     <button class="btn btn-info" id="toggleButton">Hide results</i></button>
                     <div id="resultList">
                     </div>
