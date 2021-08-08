@@ -55,15 +55,14 @@ $(document).ready( () => {
             $.get(githubSearch)
                 .done(results => {
                     if (results.length === 0) {
-                        alert('Forbidden value!');
-                        resultList.text('Search for another user.');
+                        resultList.text(`${user} has no public repositories or does not exist. Try another username.`);
                     }
                     else
                         displayResultsByUser(results);
             })
             .fail(error => {
                 if (error.status === 404)
-                    resultList.text('404 - User not found on GitHub.');
+                    resultList.text('404 - User not found.');
                 console.log('Failed to query GitHub', error);
             })
             .always(function () {
