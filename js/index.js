@@ -87,10 +87,10 @@ $(document).ready( () => {
                 '<div/>');
 
             newResult.hover(
-                () => {
+                function () {
                     $(this).css('background-color', 'lightgray');
                 },
-                (params) => {
+                function () {
                     $(this).css('background-color', 'white');
             });
     
